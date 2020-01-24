@@ -1,0 +1,25 @@
+.container{
+    height: 85%;
+    background-image: url(https://cdn-images-1.medium.com/max/2400/1*1iTBRnDCp_aWhbLsLmMW6Q.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.text__container{
+    position: relative;
+    display: block;
+    top: 50%;
+    color: white;
+}
+
+.title{
+    font-size: 72px;
+    margin-bottom: 0px;
+}
+
+.subtitle{
+    font-size: 48px;
+    margin-top: 5px;
+}
