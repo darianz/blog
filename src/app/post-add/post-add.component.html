@@ -1,0 +1,32 @@
+<label>Main Title</label>
+<input
+    type="text"
+    class="post__title"
+    (input) = "onUpdateMainTitleName($event)"
+>
+
+<label>Subtitle</label>
+<input
+        type="text"
+        class="post__title"
+        (input) = "onUpdateSubtitleName($event)"
+>
+
+<div >
+    <button (click)="addSection()">Add Section</button>
+    <form>
+        <div *ngFor="let section of sectionsList; let textarea_index= index">
+            <label>Section Title</label>
+            <input
+                type="text"
+                class="post__title"
+                (input) = "onUpdateTitleName($event)"
+
+            >
+            <h3>Content</h3>
+            <textarea name="{{section}}"></textarea>
+            <button (click)="removeSection(textarea_index)">Remove Section</button>
+        </div>
+    </form>
+
+    <button (click)="onSubmit()">SUBMIT</button>

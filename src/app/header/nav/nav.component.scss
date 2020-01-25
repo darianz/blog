@@ -1,14 +1,25 @@
-ul{ 
+@import 'variables';
+
+nav {
     display: flex;
-    flex-direction: row;
-    list-style-type: none;
-}
-li{
-    margin-right: 30px;
-    font-size: 36px;
-    
-}
-a{
-    color:white;
-    text-decoration: none;;
+    // height: 100%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    ul {
+        display: flex;
+        list-style-type: none;
+        font-size: 1.2rem;
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
 }
