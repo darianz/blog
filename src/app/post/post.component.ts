@@ -16,15 +16,15 @@ export class PostComponent implements OnInit {
 
   constructor() {
 
-    this.testpost = new PostModule("TestTitle", "TestSubtitle", "Test Thumbnail Desc", "Test author");
+    // this.testpost = new PostModule("TestTitle", "TestSubtitle", "Test Thumbnail Desc");
   }
 
   ngOnInit() {
 
     this.title = this.testpost.title;
-    this.subtitle = this.testpost.subtitle;
-    this.thumbnailDescription = this.testpost.thumbnailDescription;
-    this.author = this.testpost.author;
+    // this.subtitle = this.testpost.subtitle;
+    this.thumbnailDescription = this.testpost.thumbnail;
+    // this.author = this.testpost.author;
 
     console.log(this.testpost);
     

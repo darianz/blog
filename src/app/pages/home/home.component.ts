@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
+import { PostModule } from 'src/app/post/post.module';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  posts = [];
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.posts = this.data.getPosts();
+    console.log(this.posts);
   }
 
 }

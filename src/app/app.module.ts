@@ -10,6 +10,8 @@ import { PostComponent } from './post/post.component';
 import { PostAddComponent } from './post-add/post-add.component';
 import { HomeComponent } from './pages/home/home.component';
 
+import { DataService } from './data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

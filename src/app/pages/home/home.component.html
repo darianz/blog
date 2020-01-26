@@ -1,16 +1,16 @@
 <section>
-    <div class="home__big_post post">
+    <div class="home__big_post post" *ngFor="let post of posts">
         <div class="post__thumbnail">
-            <div class="img"></div>
+            <div class="img" [style.background-image]="post.thumbnailBinding"></div>
         </div>
         <div class="post__content">
-            <h2>Tittle Here</h2>
-            <span>If you want to become a professional software developer, you’ll need to become familiar with GitHub.</span>
+            <h2>{{ post.title | titlecase }}</h2>
+        <span>{{ post.sections[0].content | slice:0:50 }}</span>
             <div class="post_misc">
                 <div class="post_misc-avatar"></div>
                 <div class="post_misc-cont">
                     <div class="author">Peter Bell</div>
-                    <div class="date">Oct 18, 2019</div>
+                    <div class="date">{{ post.date }}</div>
 
                 </div>
 
