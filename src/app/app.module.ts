@@ -11,6 +11,8 @@ import { PostAddComponent } from './post-add/post-add.component';
 import { HomeComponent } from './pages/home/home.component';
 
 import { DataService } from './data.service';
+import { AddComponent } from './pages/admin/add/add.component';
+import { PanelComponent } from './pages/admin/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { DataService } from './data.service';
     HeroComponent,
     NavComponent, 
     PostAddComponent,
-    PostComponent, PostAddComponent, HomeComponent,
+    PostComponent, PostAddComponent, HomeComponent, AddComponent, PanelComponent,
   ],
   imports: [
     BrowserModule,

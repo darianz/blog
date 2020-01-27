@@ -19,4 +19,8 @@ export class PostModule {
   combainString = () => {
     return `url(${this.thumbnail})`;
   }
+
+  //make a function to get static maxSection (maximum amount of sections for admin table)
+
+  //make a function to set athor's name + pic by id
 }

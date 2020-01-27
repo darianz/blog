@@ -1,0 +1,16 @@
+main {
+    table {
+        width: 80%;
+        margin: 25px auto;
+        border: solid 1.5px;
+
+        #properties {
+            background-color: grey;
+        }
+
+        .line:hover {
+            background-color: rgb(189, 182, 182);
+            
+        }
+    }
+}

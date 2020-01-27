@@ -63,7 +63,9 @@ export class DataService {
 
   //in the future should return observable from firebase
   getPosts() {
-    this.dataToModule();
+    if (this.posts.length === 0) {
+      this.dataToModule();
+    }
     return this.posts;
   }
 
