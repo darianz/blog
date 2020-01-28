@@ -9,7 +9,7 @@
                 <td>Section 2</td>
                 <!-- <td>Section 3</td> -->
             </tr>
-            <tr class="line" *ngFor="let post of posts" (click)="editPost(post)">
+            <tr class="line" *ngFor="let post of loadedPosts" (click)="editPost(post)">
                 <td>{{ post.id }}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.author }}</td>
@@ -20,3 +20,4 @@
         </tbody>
     </table>
 </main>
+

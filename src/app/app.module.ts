@@ -1,18 +1,42 @@
+// System
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+// Components
+
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './header/hero/hero.component';
 import { NavComponent } from './header/nav/nav.component';
 import { PostComponent } from './post/post.component';
 import { PostAddComponent } from './post-add/post-add.component';
 import { HomeComponent } from './pages/home/home.component';
-
-import { DataService } from './data.service';
 import { AddComponent } from './pages/admin/add/add.component';
+import { SigninComponent } from './signin/signin.component';
+import { AppComponent } from './app.component';
 import { PanelComponent } from './pages/admin/panel/panel.component';
+
+//Routing
+
+import { AppRoutingModule } from './app-routing.module';
+
+// Services
+
+import { AuthService } from './auth.service';
+import { DataService } from './data.service';
+
+// FireBase
+
+import { firebaseConfig } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
+//import {  FirebaseObjectObservable } from '@angular/fire/database';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -21,13 +45,25 @@ import { PanelComponent } from './pages/admin/panel/panel.component';
     HeroComponent,
     NavComponent, 
     PostAddComponent,
-    PostComponent, PostAddComponent, HomeComponent, AddComponent, PanelComponent,
+    PostComponent,
+    PostAddComponent,
+    HomeComponent,
+    AddComponent,
+    PanelComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    AngularFireModule.initializeApp(firebaseConfig),       
+    AngularFireDatabaseModule,               
+    AngularFireAuthModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+                    
   ],
-  providers: [DataService],
+  providers: [DataService, AuthService, AngularFireAuth, AngularFireDatabase],
   bootstrap: [AppComponent]
+ 
 })
 export class AppModule { }

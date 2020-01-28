@@ -1,1 +1,38 @@
-<p>add works!</p>
+<form [formGroup]="postForm">
+
+    <label>
+        Post Title:
+        <input type="text" formControlName="title">
+    </label>
+
+    <label>
+        Thumbnail Image:
+        <input type="text" formControlName="thumbnail">
+    </label>
+
+    <label>
+        Post author:
+        <input type="text" formControlName="title">
+    </label>
+    <div class="sections" formArrayName="sections">
+
+        <div class="sections__section" *ngFor="let section of sectionForms.controls; let i = index" [formGroupName]="i">
+            <label>
+                Section Title
+                <input type="text" class="post__section-title" formControlName="sectionTitle">
+            </label>
+            <label>
+                Section Image
+                <input type="text" class="post__section-img" formControlName="sectionImg">
+            </label>
+            <label>
+                Section Content
+                <textarea type="text" class="post__section-cont" formControlName="sectionContent"></textarea>
+            </label>
+            <button (click)="removeSection(i)">Remove Section</button>
+        </div>
+    </div>
+    <button (click)="addSection()">Add Section</button>
+    <button (click)="submit()" [disabled]="postForm.invalid">Submit</button>
+
+</form>

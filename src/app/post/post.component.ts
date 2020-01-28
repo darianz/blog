@@ -1,33 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostModule } from '../post/post.module';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  testpost: PostModule;
-  title: string;
-  subtitle: string;
-  thumbnailDescription: string;
-  id: string;
-  author: string;
-  datePublished: string;
+  
+  @Input() post: PostModule;
+  @Input() main: boolean;
 
-  constructor() {
-
-    // this.testpost = new PostModule("TestTitle", "TestSubtitle", "Test Thumbnail Desc");
-  }
+  constructor() {  }
 
   ngOnInit() {
-
-    this.title = this.testpost.title;
-    // this.subtitle = this.testpost.subtitle;
-    this.thumbnailDescription = this.testpost.thumbnail;
-    // this.author = this.testpost.author;
-
-    console.log(this.testpost);
+    console.log(this.post);
     
+
   }
 
 }
