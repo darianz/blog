@@ -52,11 +52,11 @@ export class AddComponent implements OnInit {
 
     const formvalue = this.postForm.value
     console.log(formvalue);
-    const post = new PostModule(formvalue.title, formvalue.thumbnail, formvalue.author, formvalue.sections)
+    const post = new PostModule('', formvalue.title, formvalue.thumbnail, formvalue.author, formvalue.sections)
     console.log(post);
     
     try {
-      // await this.service.addPost(formvalue)
+      await this.service.addPost(post);
     } catch (err) {
 
     }

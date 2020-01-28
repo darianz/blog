@@ -5,17 +5,13 @@
                 <td>ID</td>
                 <td>Title</td>
                 <td>Author</td>
-                <td>Section 1</td>
-                <td>Section 2</td>
-                <!-- <td>Section 3</td> -->
+                <td *ngFor="let section of maxSections">Section {{section}}</td>
             </tr>
             <tr class="line" *ngFor="let post of loadedPosts" (click)="editPost(post)">
                 <td>{{ post.id }}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.author }}</td>
-                <td>{{ post.sections[0].content }}</td>
-                <td>{{ post.sections[1].content }}</td>
-                <!-- <td>Section 3</td> -->
+                <td *ngFor="let section of post.sections">{{ section.sectionContent }}</td>
             </tr>
         </tbody>
     </table>

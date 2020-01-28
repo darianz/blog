@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 //import { subscribe } from 'rxjs/operators'; 
 import { HttpClient } from '@angular/common/http';
+import { PostModule } from 'src/app/post/post.module';
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
@@ -9,21 +10,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PanelComponent implements OnInit {
 
-  posts = [];
   loadedPosts = [];
+  maxSections = [];
   isFetching = false;
   constructor(private data: DataService) { }
 
   ngOnInit() {
     
     this.FetchData();
-
   }
 
   FetchData(){
-    // this.loadedPosts = this.data.fetchPosts(); //RON
     this.data.fetchPosts().subscribe(posts => {
       this.loadedPosts = posts;
+      this.maxSections = Array(PostModule.maxSections).fill('').map((x,i)=>i + 1);
      });
   }
 

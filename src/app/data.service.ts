@@ -88,7 +88,7 @@ export class DataService {
 
   ]
   constructor(private http: HttpClient) { }
-  
+
   dataToModule() {
     this.data.forEach((value, index) => {
       let id = this.data[index].id;
@@ -98,7 +98,7 @@ export class DataService {
       let date = this.data[index].date
       let sections = this.data[index].sections
 
-      this.posts.push(new PostModule(title, thumbnail, author, sections))
+      this.posts.push(new PostModule('', title, thumbnail, author, sections))
     })
   }
 
@@ -110,37 +110,45 @@ export class DataService {
     return this.posts;
   }
 
-  addPost(post: PostModule) {
+  addPost(post) {
     // this.posts.push(post);
     this.http.post(
       'https://blog-842ac.firebaseio.com/posts.json',
       post
-    ).subscribe(responseData=> {
-      console.log(responseData);
-    });
-    
-  }
-
-  fetchPosts(){
-    
-    return this.http
-    .get('https://blog-842ac.firebaseio.com/posts.json')
-    .pipe(
-      map(responseData => {
-        const postsArray = [];
-        for (const key in responseData){
-        if (responseData.hasOwnProperty(key)){
-          postsArray.push({ ...responseData[key], id: key});
-        }
+    ).subscribe(responseData => {
+      if (responseData.hasOwnProperty(name)) {
+        console.log(responseData);
+      
       }
-        return postsArray;
-      })
-    );
-   
-    
+    });
+
   }
 
-  
+  fetchPosts() {
+
+    return this.http
+      .get('https://blog-842ac.firebaseio.com/posts.json')
+      .pipe(
+        map(responseData => {
+          const postsArray = [];
+          const testArray = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              console.log(responseData);
+
+              let data = responseData[key]
+              testArray.push(new PostModule(key, data.title, data.thumbnail, data.author, data.sections))
+              postsArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return testArray;
+        })
+      );
+
+
+  }
+
+
 }
 
 /*
