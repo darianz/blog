@@ -16,6 +16,10 @@ const routes: Routes = [
     component: PanelComponent
   },
   {
+    path: 'admin/add/:id',
+    component: AddComponent
+  },
+  {
     path: 'admin/add',
     component: AddComponent
   },

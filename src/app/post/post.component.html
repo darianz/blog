@@ -1,9 +1,9 @@
-<div class="post__thumbnail">
+<div class="post__thumbnail" [ngClass]="main ? 'main__thumbnail' : ''">
     <div class="img" [style.background-image]="post.thumbnailBinding"></div>
 </div>
-<div class="post__content">
+<div class="post__content" [ngClass]="main ? 'main__content' : ''">
     <h2>{{ post.title | titlecase }}</h2>
-    <span>{{ post.sections[0].content | slice:0:50 }}</span>
+    <span>{{ post.sections[0].sectionContent | slice:0:80 }}</span>
     <div class="post_misc">
         <div class="post_misc-avatar"></div>
         <div class="post_misc-cont">

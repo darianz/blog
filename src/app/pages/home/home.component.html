@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="!loading">
     <div class="home__big_post">
         <app-post class="home__big_post_main" [post]="posts[0]" [main]="true"></app-post>
     </div>

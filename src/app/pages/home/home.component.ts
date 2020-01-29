@@ -8,13 +8,28 @@ import { PostModule } from 'src/app/post/post.module';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  posts = [];
+  loading = true;
+  posts: Array<PostModule>;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.posts = this.data.getPosts();
+    this.fetchData();
+    
+  }
+
+  async fetchData(){
+    this.loading = true;
+
+    try {
+
+      await this.data.fetchPosts().subscribe(posts => {
+       this.posts = posts;
+      });
+      this.loading = false;
+    } catch (err) {
+      console.log(err)
+    }
   }
 
 }

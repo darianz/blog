@@ -1,40 +1,44 @@
 .post {
     &__thumbnail {
         width: 100%;
-        height: 50vh;
+        height: 40%;
         align-items: center;
         display: flex;
     
         .img {
             width: 100%;
-            height: 90%;
+            height: 100%;
             background-image: url('https://cdn-images-1.medium.com/max/1000/0*g1vBU2ytNv0JwV69.png');
-            background-position: center;
+            background-position: top;
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: cover;
         }
     }
     
     &__content {
-        height: 70%;
+        height: 60%;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
     
         h2 {
-    
-            font-size: 2rem;
+            height: 50%;
+            font-size: 1.75rem;
         }
     
         span {
-            width: 70%;
+            width: 90%;
             font-size: 1rem;
         }
     
         .post_misc {
             width: 100%;
             display: flex;
-    
+            // height: 100%;
+            flex-grow: 1;
+            margin-top: 15px;
+
             &-avatar {
                 width: 30px;
                 height: 30px;
@@ -56,5 +60,17 @@
                 }
             }
         }
+    }
+}
+
+.main {
+    &__thumbnail {
+        height: 100%;
+        width: 63%;
+
+    }
+    &__content {
+        height: 100%;
+        width: 30%;
     }
 }

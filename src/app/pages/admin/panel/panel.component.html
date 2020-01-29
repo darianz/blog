@@ -7,13 +7,17 @@
                 <td>Author</td>
                 <td *ngFor="let section of maxSections">Section {{section}}</td>
             </tr>
-            <tr class="line" *ngFor="let post of loadedPosts" (click)="editPost(post)">
-                <td>{{ post.id }}</td>
+            <tr class="line" *ngFor="let post of posts; let i = index" (click)="editPost(post)">
+
+                <td>
+                <a routerLink="add/{{ i }}">
+                        {{ post.id | slice:1:10 }}
+                    </a>
+                </td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.author }}</td>
-                <td *ngFor="let section of post.sections">{{ section.sectionContent }}</td>
+                <td *ngFor="let section of post.sections">{{ section.sectionContent | slice:0:50 }} ...</td>
             </tr>
         </tbody>
     </table>
 </main>
-

@@ -4,16 +4,16 @@ section {
 }
 
 .home__big_post {
-    width: 90%;
+    width: 100%;
     height: 50vh;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin: 25px auto;
 
     &_main {
         display: flex;
         width: 100%;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 
 }
@@ -22,7 +22,8 @@ section {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-    // height: 50vh;
+    height: 50vh;
+    margin: 15px auto;
 
     &-main {
         height: 100%;
@@ -30,7 +31,8 @@ section {
         flex-direction: column;
         width: 30%;
         min-width: 300px;
-        margin: 0 auto;
+        margin: 15px auto;
+        justify-content: space-between;
     }
 
 }

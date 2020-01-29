@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'blog by Idan and Ron';
+  title = 'Blog by Idan and Ron';
+  posts;
+  constructor(private data: DataService) {}
+  // ngOnInit()  {
+    
+  //   this.fetchData()
+  // }
+
+  // fetchData(){
+  //   this.data.fetchPosts().subscribe(posts => {
+  //     this.posts = posts;
+  //   });
+  // }
 }
