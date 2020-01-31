@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
 
       await this.data.fetchPosts().subscribe(posts => {
        this.posts = posts;
+       this.loading = false;
       });
-      this.loading = false;
     } catch (err) {
       console.log(err)
     }

@@ -8,16 +8,21 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
   title = 'Blog by Idan and Ron';
-  posts;
-  constructor(private data: DataService) {}
-  // ngOnInit()  {
-    
-  //   this.fetchData()
-  // }
+  loaded = false;
+  constructor(private data: DataService) { }
+  ngOnInit() {
 
-  // fetchData(){
-  //   this.data.fetchPosts().subscribe(posts => {
-  //     this.posts = posts;
-  //   });
-  // }
+    // this.fetchData()
+  }
+
+  async fetchData() {
+    try {
+      await this.data.fetchPosts().subscribe(posts => {
+        this.loaded = true;
+      });
+      this.loaded = false;
+    } catch (err) {
+      console.log(err)
+    }
+  }
 }

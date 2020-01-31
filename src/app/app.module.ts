@@ -36,6 +36,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 //import {  FirebaseObjectObservable } from '@angular/fire/database';
 
 import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './pages/util/spinner/spinner.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     AddComponent,
     PanelComponent,
     SigninComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

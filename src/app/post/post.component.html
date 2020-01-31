@@ -3,7 +3,7 @@
 </div>
 <div class="post__content" [ngClass]="main ? 'main__content' : ''">
     <h2>{{ post.title | titlecase }}</h2>
-    <span>{{ post.sections[0].sectionContent | slice:0:80 }}</span>
+    <span class="post__content__span">{{ post.sections[0].sectionContent | slice:0:80 }}... <span class="post__content__span--m">Read more.</span> </span>
     <div class="post_misc">
         <div class="post_misc-avatar"></div>
         <div class="post_misc-cont">

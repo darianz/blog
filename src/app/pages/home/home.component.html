@@ -1,8 +1,10 @@
-<section *ngIf="!loading">
+<section>
     <div class="home__big_post">
-        <app-post class="home__big_post_main" [post]="posts[0]" [main]="true"></app-post>
+        <app-spinner *ngIf="loading"></app-spinner>
+        <app-post class="home__big_post_main" *ngIf="!loading" [post]="posts[0]" [main]="true"></app-post>
     </div>
-    <div class="home__posts">
+    <app-spinner *ngIf="loading"></app-spinner>
+    <div class="home__posts" *ngIf="!loading">
         <app-post class="home__posts-main" *ngFor="let post of posts" [post]="post" [main]="false"></app-post>
     </div>
 </section>

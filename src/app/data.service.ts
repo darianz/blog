@@ -38,7 +38,6 @@ export class DataService {
   }
 
   fetchPosts() {
-
     return this.http
       .get('https://blog-842ac.firebaseio.com/blog/posts.json')
       .pipe(
