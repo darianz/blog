@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PostModule } from './post/post.module';
+import { PostModule } from 'src/app/pages/util/post.module';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 @Injectable({
@@ -23,6 +23,14 @@ export class DataService {
 
   editPost(post) {
 
+  }
+
+  getArticle(string) {
+    const title = string.split('_').join(' ');
+    this.posts.forEach((v, i) => {
+      this.posts[i].title === title
+      return this.posts[i]
+    })
   }
 
   addPost(post) {

@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private data: DataService) { }
   ngOnInit() {
 
-    // this.fetchData()
+    this.fetchData()
   }
 
   async fetchData() {

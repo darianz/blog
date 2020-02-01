@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
-import { PostModule } from 'src/app/post/post.module';
+import { PostModule } from 'src/app/pages/util/post.module';
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',

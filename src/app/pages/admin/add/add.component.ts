@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { DataService } from 'src/app/data.service';
-import { PostModule } from 'src/app/post/post.module';
+import { PostModule } from 'src/app/pages/util/post.module';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-add',
