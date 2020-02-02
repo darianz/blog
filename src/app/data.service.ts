@@ -27,10 +27,13 @@ export class DataService {
 
   getArticle(string) {
     const title = string.split('_').join(' ');
+    let p: PostModule;
     this.posts.forEach((v, i) => {
-      this.posts[i].title === title
-      return this.posts[i]
+      if (this.posts[i].title === title) {
+        p = this.posts[i];
+      }
     })
+    return p;
   }
 
   addPost(post) {

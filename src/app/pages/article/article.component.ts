@@ -9,7 +9,7 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  post;
+  post: PostModule;
   constructor(private route: ActivatedRoute, private service: DataService) { }
 
   ngOnInit() {
@@ -18,9 +18,9 @@ export class ArticleComponent implements OnInit {
       let title = param.get('title');
       if (title) {
         this.post = this.service.getArticle(title);
+        console.log(this.post);
       }
     });
-    console.log(this.post);
     
   }
 

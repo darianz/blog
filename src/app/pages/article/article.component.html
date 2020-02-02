@@ -1,0 +1,16 @@
+<div class="article">
+    <h3>{{ post.title }}</h3>
+    <div class="article__author">
+        <img class="article__author__avatar" src="https://miro.medium.com/fit/c/96/96/0*CYpbfyGCRXmZHeqq.jpg">
+        <div class="article__author__misc">
+            <span class="article__author__name">Peter Bell</span>
+            <span class="article__author__date">{{ post.date }}</span>
+        </div>
+    </div>
+    <div class="article__section" *ngFor="let section of post.sections">
+        <h2>{{ section.sectionTitle }}</h2>
+        <p>{{ section.sectionContent }}</p>
+        <img src="{{ section.sectionImg }}" *ngIf="section.sectionImg !== ''">
+    </div>
+
+</div>

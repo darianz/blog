@@ -32,4 +32,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  titleToUrl(title) {
+    return title.split(' ').join('_');
+  }
+
 }
