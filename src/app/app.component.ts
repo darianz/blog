@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from './data.service';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,22 +7,18 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'Blog by Idan and Ron';
   loaded = false;
+  
   constructor(private data: DataService) { }
+              
+  
   ngOnInit() {
-
-    this.fetchData()
+    this.fetchData();
   }
 
-  async fetchData() {
-    try {
-      await this.data.fetchPosts().subscribe(posts => {
-        this.loaded = true;
-      });
-      this.loaded = false;
-    } catch (err) {
-      console.log(err)
-    }
+  fetchData() {
+    this.data.fetchPosts();
   }
 }

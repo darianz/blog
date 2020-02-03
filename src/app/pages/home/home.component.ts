@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { Component, OnInit} from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 import { PostModule } from 'src/app/pages/util/post.module';
 
 @Component({
@@ -8,28 +8,11 @@ import { PostModule } from 'src/app/pages/util/post.module';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  loading = true;
-  posts: Array<PostModule>;
 
-  constructor(private data: DataService) { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
-    this.fetchData();
-    
-  }
-
-  async fetchData(){
-    this.loading = true;
-
-    try {
-
-      await this.data.fetchPosts().subscribe(posts => {
-       this.posts = posts;
-       this.loading = false;
-      });
-    } catch (err) {
-      console.log(err)
-    }
+  
   }
 
   titleToUrl(title) {

@@ -21,8 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Services
 
-import { AuthService } from './auth.service';
-import { DataService } from './data.service';
+
 
 // FireBase
 
@@ -61,7 +60,7 @@ import { ArticleComponent } from './pages/article/article.component';
     HttpClientModule,
                     
   ],
-  providers: [DataService, AuthService, AngularFireAuth, AngularFireDatabase],
+  providers: [],
   bootstrap: [AppComponent]
  
 })

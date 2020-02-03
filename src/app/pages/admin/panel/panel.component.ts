@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { PostModule } from 'src/app/pages/util/post.module';
 @Component({
   selector: 'app-panel',
@@ -15,25 +15,25 @@ export class PanelComponent implements OnInit {
 
   ngOnInit() {
     
-    this.fetchData();
+    // this.fetchData();
     // this.loadedPosts = this.data.posts;
 
   }
 
-  async fetchData(){
-    this.loading = true;
+  // async fetchData(){
+  //   this.loading = true;
 
-    try {
+  //   try {
 
-      await this.data.fetchPosts().subscribe(posts => {
-       this.posts = posts;
-       this.maxSections = Array(PostModule.maxSections).fill('').map((x,i)=>i + 1);
-      });
-      this.loading = false;
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  //     await this.data.fetchPosts().subscribe(posts => {
+  //      this.posts = posts;
+  //      this.maxSections = Array(PostModule.maxSections).fill('').map((x,i)=>i + 1);
+  //     });
+  //     this.loading = false;
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
  
 

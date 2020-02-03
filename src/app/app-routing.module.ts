@@ -10,7 +10,7 @@ import { ArticleComponent } from './pages/article/article.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'art/:title',

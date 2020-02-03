@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostModule } from '../util/post.module';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-article',
@@ -9,7 +9,9 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
+  
   post: PostModule;
+
   constructor(private route: ActivatedRoute, private service: DataService) { }
 
   ngOnInit() {

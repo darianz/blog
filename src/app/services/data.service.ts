@@ -2,16 +2,25 @@ import { Injectable } from '@angular/core';
 import { PostModule } from 'src/app/pages/util/post.module';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { LocalstorageService } from './localstorage.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
   posts: Array<PostModule> = [];
+  loaded = false;
   loadedPosts: PostModule[] = [];
 
+  _posts = [];
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private localstorageService: LocalstorageService) {
+
+    this._posts = this.localstorageService.getValue('posts') || [];
+  }
 
   inputPost(post) {
     if (!this.checkExist(post.id)) {
@@ -28,11 +37,13 @@ export class DataService {
   getArticle(string) {
     const title = string.split('_').join(' ');
     let p: PostModule;
-    this.posts.forEach((v, i) => {
+
+    this.posts.forEach((post, i) => {
       if (this.posts[i].title === title) {
         p = this.posts[i];
       }
-    })
+    });
+
     return p;
   }
 
@@ -48,7 +59,8 @@ export class DataService {
     });
   }
 
-  fetchPosts() {
+
+  getPosts() {
     return this.http
       .get('https://blog-842ac.firebaseio.com/blog/posts.json')
       .pipe(
@@ -66,6 +78,24 @@ export class DataService {
           return this.posts;
         })
       );
+  }
+
+  fetchPosts() {
+    this.getPosts().subscribe(
+      (posts) => {
+        console.log('posts:', posts)
+        if (this._posts.length === 0 || JSON.stringify(posts) !== JSON.stringify(this._posts)) {
+          console.log("yep")
+          this.localstorageService.setValue('posts', posts);
+          this._posts = posts || [];
+        }
+      },
+      (err) => {
+        console.log(err)
+      },
+      () => {
+        this.loaded = true;
+      });
   }
 
   checkExist(id) {

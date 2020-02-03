@@ -1,6 +1,14 @@
 section {
     max-width: 1050px;
     margin: 0 auto;
+
+    &:first-child {
+
+    }
+
+    &:not(:first-child) {
+        
+    }
 }
 
 .home__big_post {
@@ -10,7 +18,7 @@ section {
     justify-content: center;
     margin: 25px auto;
 
-    &_main {
+    app-post {
         display: flex;
         width: 100%;
         justify-content: space-around;
@@ -25,7 +33,7 @@ section {
     height: 50vh;
     margin: 15px auto;
 
-    &-main {
+    app-post {
         height: 100%;
         display: flex;
         flex-direction: column;
