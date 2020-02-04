@@ -8,11 +8,11 @@ import { PostModule } from 'src/app/pages/util/post.module';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  posts;
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
-  
+    this.posts = this.dataService.posts
   }
 
   titleToUrl(title) {

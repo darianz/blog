@@ -31,7 +31,9 @@ export class DataService {
   }
 
   editPost(post) {
-
+    this.http.put(`https://blog-842ac.firebaseio.com/blog/posts/${post.id}.json`,post).subscribe(
+      (error) => console.log(error)
+    );
   }
 
   getArticle(string) {
@@ -96,6 +98,13 @@ export class DataService {
       () => {
         this.loaded = true;
       });
+  }
+
+  deletePost(key) {
+    console.log("key is:" + key);
+    this.http.delete(`https://blog-842ac.firebaseio.com/blog/posts/${key}.json`).subscribe(
+      (error) => console.log(error)
+    );
   }
 
   checkExist(id) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostModule } from '../util/post.module';
 import { DataService } from 'src/app/services/data.service';
@@ -16,6 +16,18 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
     
+    // this.route.paramMap.subscribe(param => {
+    //   let title = param.get('title');
+    //   if (title) {
+    //     this.post = this.service.getArticle(title);
+    //     console.log(this.post);
+    //   }
+    // });
+    
+  }
+
+  ngDoCheck() {
+    
     this.route.paramMap.subscribe(param => {
       let title = param.get('title');
       if (title) {
@@ -23,7 +35,6 @@ export class ArticleComponent implements OnInit {
         console.log(this.post);
       }
     });
-    
   }
 
 }

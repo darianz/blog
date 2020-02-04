@@ -11,13 +11,14 @@ export class PanelComponent implements OnInit {
   posts = [];
   maxSections = [];
   isFetching = false;
-  constructor(private data: DataService) { }
+  confirmAnswer: boolean;
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     
-    // this.fetchData();
-    // this.loadedPosts = this.data.posts;
-
+    this.posts = this.dataService.posts;
+    this.maxSections = Array(PostModule.maxSections).fill('').map((x,i)=>i + 1);
+    
   }
 
   // async fetchData(){
@@ -27,7 +28,6 @@ export class PanelComponent implements OnInit {
 
   //     await this.data.fetchPosts().subscribe(posts => {
   //      this.posts = posts;
-  //      this.maxSections = Array(PostModule.maxSections).fill('').map((x,i)=>i + 1);
   //     });
   //     this.loading = false;
   //   } catch (err) {
@@ -37,8 +37,14 @@ export class PanelComponent implements OnInit {
 
  
 
-  editPost(post) {
-    console.log(post);
+  
+
+  deletePost(post:PostModule){
+    this.confirmAnswer = confirm('Confirm Delete Post');
+    if (this.confirmAnswer) {
+      this.dataService.deletePost(post.id);
+      location.reload();
+    }
     
   }
 }

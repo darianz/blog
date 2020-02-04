@@ -1,13 +1,15 @@
 section {
     max-width: 1050px;
     margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
 
     &:first-child {
 
     }
 
     &:not(:first-child) {
-        
+
     }
 }
 
@@ -27,6 +29,8 @@ section {
 }
 
 .home__posts {
+    width: 30%;
+    min-width: 300px;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;

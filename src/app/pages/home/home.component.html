@@ -1,6 +1,6 @@
 <section>
-    <app-spinner *ngIf="!dataService.posts"></app-spinner>
-    <ng-container *ngFor="let post of dataService.posts; first as first">
+    <app-spinner *ngIf="!posts"></app-spinner>
+    <ng-container *ngFor="let post of posts; first as first">
         <div [ngClass]="first? 'home__big_post' : 'home__posts'">
             <app-post [post]="post" [main]="first" routerLink="art/{{titleToUrl(post.title)}}"></app-post>    
         </div>
