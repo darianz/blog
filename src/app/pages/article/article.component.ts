@@ -23,11 +23,6 @@ export class ArticleComponent implements OnInit {
     //     console.log(this.post);
     //   }
     // });
-    
-  }
-
-  ngDoCheck() {
-    
     this.route.paramMap.subscribe(param => {
       let title = param.get('title');
       if (title) {
@@ -35,6 +30,11 @@ export class ArticleComponent implements OnInit {
         console.log(this.post);
       }
     });
+  }
+
+  ngDoCheck() {
+    
+    
   }
 
 }

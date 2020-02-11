@@ -18,7 +18,6 @@ export class DataService {
 
   constructor(private http: HttpClient,
     private localstorageService: LocalstorageService) {
-
     this._posts = this.localstorageService.getValue('posts') || [];
   }
 
@@ -40,9 +39,9 @@ export class DataService {
     const title = string.split('_').join(' ');
     let p: PostModule;
 
-    this.posts.forEach((post, i) => {
-      if (this.posts[i].title === title) {
-        p = this.posts[i];
+    this._posts.forEach((post, i) => {
+      if (this._posts[i].title === title) { 
+        p = this._posts[i];
       }
     });
 
@@ -87,7 +86,7 @@ export class DataService {
       (posts) => {
         console.log('posts:', posts)
         if (this._posts.length === 0 || JSON.stringify(posts) !== JSON.stringify(this._posts)) {
-          console.log("yep")
+          console.log("posts were changed");
           this.localstorageService.setValue('posts', posts);
           this._posts = posts || [];
         }
